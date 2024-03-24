@@ -1,0 +1,14 @@
+/* h1 {
+    color: red;
+} */
+hr {
+    height: 5px;
+    background-color: #b80e0e;
+    border: none;
+  }
+
+  .FormLayout{
+    border-radius: 15px;
+    width: auto;
+
+  }

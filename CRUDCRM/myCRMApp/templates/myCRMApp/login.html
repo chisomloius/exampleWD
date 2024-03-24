@@ -1,0 +1,39 @@
+{% extends 'myCRMApp/base.html' %}
+
+{% block title %}Login | Dock Docs{% endblock %}
+
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<body>
+    <div class="container bg-light shadow-md p-5 FormLayout">
+        
+        <h3>Login to your account</h3>
+
+        <br>
+        <br>
+
+        <form action="" method="POST" autocomplete="on">
+            
+            {% csrf_token %}
+
+            <!-- {{formLogin|crispy}} -->
+            {{formLogin.username|as_crispy_field}}
+            {{formLogin.password|as_crispy_field}}
+
+            <br>
+
+            <button type="submit" class="btn btn-outline-info w-100">Login &nbsp; <i class="fa fa-key" aria-hidden="true"></i></button>
+
+        </form>
+
+        <div class="text-center">
+            <p>Don't have an account? </p><a href="{% url 'register' %}" class="btn btn-outline-secondary w-100">Register &nbsp;<i class="fa fa-user-plus"></i></a>
+        </div>
+
+    </div>
+
+</body>
+    
+{% endblock %}

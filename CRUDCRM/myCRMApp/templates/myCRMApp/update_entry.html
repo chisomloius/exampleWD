@@ -1,0 +1,60 @@
+{% extends 'myCRMApp/base.html' %}
+
+{% block title %}Update Entry | Dock Docs{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<body>
+
+    <div class="container bg-light shadow-md p-5 FormLayout">
+        <h3>Update record</h3>
+
+        <h6>Edit the required details of your records.</h6>
+
+        <hr>
+        <br>
+
+        <form action="" method="POST" autocomplete="on">
+            
+            {% csrf_token %}
+
+            <!-- {{formUpdate|crispy}} -->
+            {{formUpdate.ShipName|as_crispy_field}}
+            <br>
+            {{formUpdate.ShipCurrentCaptain|as_crispy_field}}
+            <br>
+            {{formUpdate.ShipEmail|as_crispy_field}}
+            <br>
+            {{formUpdate.ShipMobile|as_crispy_field}}
+            <br>
+            {{formUpdate.ShipOriginCountry|as_crispy_field}}
+            <br>
+            {{formUpdate.ShipOriginPort|as_crispy_field}}
+            <br>
+            {{formUpdate.ShipSize|as_crispy_field}}
+            <br>
+            {{formUpdate.ShipTotalIncident|as_crispy_field}}
+            <br>
+            {{formUpdate.ShipLastServiceDate|as_crispy_field}}
+            <br>
+            {{formUpdate.ShipCarbonEmission|as_crispy_field}}
+            <br>
+
+
+            <br>
+
+            <button type="submit" class="btn btn-outline-primary btn-block p-2">Update record &nbsp; <i class="fa fa-plus"></i></button>
+            &nbsp; &nbsp; &nbsp; 
+            <a href="{% url 'dashboard' %}" class="btn btn-secondary">Return &nbsp;<i class="fa fa-arrow-left"></i></a>
+        </form>    
+       
+        
+    
+
+    </div>
+
+</body>
+    
+{% endblock %}

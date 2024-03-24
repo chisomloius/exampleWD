@@ -1,0 +1,59 @@
+{% extends 'myCRMApp/base.html' %}
+
+{% block title %}Dashboard | Dock Docs{% endblock %}
+
+
+{% block content %}
+<body>
+    <div class="container bg-light shadow-md p-5">
+        
+        <h3 class="mb-5">Dear <b>{{user}}</b>, welcome to your Dashboard</h3>
+        <hr>
+
+        <a class="btn btn-outline-primary btn-lg" href="{% url 'create_entry' %}">Add records &nbsp;<i class="fa fa-plus-circle"></i></a>
+        <hr>
+
+        <table class="table table-bordered table-hover table-responsive">
+            <thead class="table-dark">
+                <tr>
+                    <!-- <th scope="col">ID</th> -->
+                    <th scope="col">Name</th>
+                    <th scope="col">Captain</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Origin</th>
+                    <th scope="col">Size(sq^2)</th>
+                    <th scope="col">Total Incident</th>
+                    <th scope="col">Last Service Date</th>
+                    <th scope="col">Total Carbon Emission(ppm)</th>
+                    <th scope="col">Record Date</th>
+                    <th scope="col">View</th>
+                </tr>
+            </thead>
+
+            <tbody class="table-light">
+                {% if records %}
+                    {% for record in records %}
+                    <tr>
+                        <!-- <td>{{record.id}}</td> -->
+                        <td>{{record.ShipName}}</td>
+                        <td>{{record.ShipCurrentCaptain}}</td>
+                        <td>{{record.ShipEmail}}; &nbsp; {{record.ShipMobile}}</td>
+                        <td>{{record.ShipOriginCountry}}; &nbsp; {{record.ShipOriginPort}}</td>
+                        <td>{{record.ShipSize}}</td>
+                        <td>{{record.ShipTotalIncident}}</td>
+                        <td>{{record.ShipLastServiceDate}}</td>
+                        <td>{{record.ShipCarbonEmission}}</td>
+                        <td>{{record.DateCreated}}</td>
+                        <td><a href="{% url 'record' record.id %}" class="btn btn-tertiary"><i class="fa fa-eye"></i></a></td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+            {% endif %}
+            
+        </table>
+
+    </div>
+
+</body>
+    
+{% endblock %}

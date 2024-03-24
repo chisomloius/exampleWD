@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url '' %}">Dock Docs</i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'dashboard' %}">Dashboard &nbsp;<i class="fa fa-home"></i></i></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{% url '' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">Entries &nbsp;<i class="fa fa-ship" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'create_entry' %}">Create</a></li>
+                    <li><a class="dropdown-item" href="{% url '' %}">Update</a></li>
+                    <!-- <li><hr class="dropdown-divider"></li><i class=""></i>
+                    <li><a class="dropdown-item" href="{% url '' %"}>Something else here</a></li> -->
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Sign Out <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+            </li>
+            
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">Register &nbsp;<i class="fa fa-user-plus"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login &nbsp;<i class="fa fa-key"></i></a>
+            </li>
+            {% endif %}
+            <!-- <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li> -->
+        </ul>
+        
+      </div>
+    </div>
+  </nav>

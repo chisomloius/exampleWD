@@ -1,0 +1,41 @@
+{% extends 'myCRMApp/base.html' %}
+
+{% block title %}Register| Dock Docs{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<body>
+    <div class="container bg-light shadow-md p-5 FormLayout">
+        
+        <h3>Create Your Account</h3>
+
+        <h5>Start managing your shipping records</h5>
+        <br>
+        <br>
+
+        <form action="" method="POST" autocomplete="on">
+            
+            {% csrf_token %}
+
+            <!-- {{formRegister|crispy}} -->
+            {{formRegister.username|as_crispy_field}}
+            <br>
+            {{formRegister.password1|as_crispy_field}}
+            <br>
+            {{formRegister.password2|as_crispy_field}}
+            <br>
+
+            <button type="submit" class="btn btn-outline-tertiary w-100 btn-block p-2">Create account &nbsp;<i class="fa fa-user-plus"></i></button>
+
+        </form>
+
+        <div class="text-center">
+            <p>Already have an account? </p><a href="{% url 'login' %}" class="btn btn-outline-tertiary w-100 btn-block p-2">Login  &nbsp;<i class="fa fa-key"></i></a>
+        </div>
+
+    </div>
+
+</body>
+    
+{% endblock %}

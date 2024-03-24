@@ -1,0 +1,44 @@
+{% extends 'myCRMApp/base.html' %}
+
+{% block title %}Update Entry | Dock Docs{% endblock %}
+
+{% block content %}
+
+<body>
+    <div class="card m-4 p-5">
+       
+        <div class="card-body">
+            <strong>
+                <i class="fa fa-anchor"></i>&nbsp;  {{record.ShipName|upper}}, &nbsp;  {{record.ShipOriginPort}}
+            </strong>
+            <hr>
+
+            <p><strong>ID: </strong>{{record.id}}</p>
+            <p><strong>Ship Name: </strong>{{record.ShipName}}</p>
+            <p><strong>Ship Current Captain: </strong>{{record.ShipCurrentCaptain}}</p>
+            <p><strong>Ship EMail: </strong>{{record.ShipEmail}}</p>
+            <p><strong>Ship Mobile: </strong>{{record.ShipMobile}}</p>
+            <p><strong>Ship Origin Country: </strong>{{record.ShipOriginCountry}}</p>
+            <p><strong>Ship Origin Port: </strong>{{record.ShipOriginPort}}</p>
+            <p><strong>Ship Size: </strong>{{record.ShipSize}}</p>
+            <p><strong>Ship Total Incident: </strong>{{record.ShipTotalIncident}}</p>
+            <p><strong>Ship Last Service Date: </strong>{{record.ShipLastServiceDate}}</p>
+            <p><strong>Ship Carbon Emission: </strong>{{record.ShipCarbonEmission}}</p>
+            <p><strong>Record Date: </strong>{{record.DateCreated}}</p>
+    
+        </div>
+
+    </div>
+
+    <a href="{% url 'dashboard' %}" class="btn btn-outline-primary m-4">Return &nbsp; <i class="fa fa-arrow-left"></i></a>
+    &nbsp;
+
+    <a href="{% url 'update_entry' record.id %}" class=" btn btn-outline-info">Update Record &nbsp; <i class="fa fa-plus"></i></a>
+    &nbsp;
+
+    <a href="{% url 'delete_entry' record.id %}" class=" btn btn-outline-warning">Delete &nbsp; <i class="fa fa-minus-square"></i></a>
+    &nbsp;
+
+</body>
+
+{% endblock %}
